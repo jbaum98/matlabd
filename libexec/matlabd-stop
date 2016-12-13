@@ -1,0 +1,10 @@
+#!/bin/sh
+# Usage: matalbd stop
+# Summary: Stops a currently running Matlab instance
+# Help: Stops a currently running Matlab instance
+# For information on running multiple Matlab instances at once,
+# see `matlabd help`
+
+echo "exit;" > $MATLABD_PIPE
+cat $MATLABD_TAILPIDFILE | xargs kill -9
+rm $MATLABD_PIPE $MATLABD_TAILPIDFILE
