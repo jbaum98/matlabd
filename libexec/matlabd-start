@@ -5,10 +5,7 @@
 # For information on running multiple Matlab instances at once,
 # see `matlabd help`
 
-MATLAB="matlab -nodisplay -nosplash >$MATLABD_OUT 2>$MATLABD_ERR &"
-TAIL="(tail -f $MATLABD_PIPE & echo $! >&3 ) 3> $MATLABD_TAILPIDFILE"
-
 if ! [ -e $MATLABD_PIPE ]; then
     mkfifo $MATLABD_PIPE
-    $TAIL | $MATLAB 
+    (tail -f $MATLABD_PIPE & echo $! >&3) 3>$MATLABD_TAILPIDFILE | matlab -nodisplay -nosplash >$MATLABD_OUT 2>$MATLABD_ERR &
 fi

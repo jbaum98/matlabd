@@ -14,7 +14,7 @@ bin/waitforsig: src/waitforsig.c
 install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	mkdir -p $(DESTDIR)$(PREFIX)/lib/matlabd
-	cp -R bin completions libexec share $(DESTDIR)$(PREFIX)/lib/matlabd/
+	cp -R bin completions libexec $(DESTDIR)$(PREFIX)/lib/matlabd/
 	ln -sf $(DESTDIR)$(PREFIX)/lib/matlabd/bin/matlabd $(DESTDIR)$(PREFIX)/bin/
 	@echo "\nFor shell completions, add the following to your startup files: \
 	\n\n\

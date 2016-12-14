@@ -4,8 +4,8 @@
 # Help: Sends a command to a currently running Matlab instance.
 # For information on how to control which instance is used, see `matlabd help`
 
-echo "$1;" > $MATLABD_PID
-$_MATLABD_ROOT/lib/waitforsig &
+echo "$1;" > $MATLABD_PIPE
+$_MATLABD_ROOT/bin/waitforsig &
 echo "contps($!);" > $MATLABD_PIPE
 wait $!
 echo "Finished running: $1" >> $MATLABD_CMDLOG

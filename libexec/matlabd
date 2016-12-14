@@ -21,11 +21,11 @@ abs_dirname() {
 
 libexec_path="$(abs_dirname "$0")"
 export _MATLABD_ROOT="$(abs_dirname "$libexec_path")"
-export MATLABD_PIPE="$TMP/matlabd.pipe"
-export MATLABD_TAILPIDFILE="$TMP/matlabd-tail.pid"
-export MATLABD_OUT="/dev/null"
-export MATLABD_ERR="/dev/null"
-export MATLABD_CMDLOG="/dev/null"
+: ${MATLABD_PIPE:="$TMP/matlabd.pipe"}
+: ${MATLABD_TAILPIDFILE:="$TMP/matlabd-tail.pid"}
+: ${MATLABD_OUT:="/dev/null"}
+: ${MATLABD_ERR:="/dev/null"}
+: ${MATLABD_CMDLOG:="/dev/null"}
 export PATH="${libexec_path}:$PATH"
 
 command="$1"
