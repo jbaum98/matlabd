@@ -26,6 +26,13 @@ export _MATLABD_ROOT="$(abs_dirname "$libexec_path")"
 : ${MATLABD_OUT:="/dev/null"}
 : ${MATLABD_ERR:="/dev/null"}
 : ${MATLABD_CMDLOG:="/dev/null"}
+if ! [ -z ${MATLABD_DEBUG+x} ]; then
+    echo "MATLABD_PIPE = $MATLABD_PIPE"
+    echo "MATLABD_TAILPIDFILE = $MATLABD_TAILPIDFILE"
+    echo "MATLABD_OUT = $MATLABD_OUT"
+    echo "MATLABD_ERR = $MATLABD_ERR"
+    echo "MATLABD_CMDLOG = $MATLABD_CMDLOG"
+fi
 export PATH="${libexec_path}:$PATH"
 
 command="$1"

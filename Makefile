@@ -14,8 +14,8 @@ install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/lib/matlabd
 	cp -R bin completions libexec $(DESTDIR)$(PREFIX)/lib/matlabd/
 	ln -sf $(DESTDIR)$(PREFIX)/lib/matlabd/bin/matlabd $(DESTDIR)$(PREFIX)/bin/
-	mkdir -p $(MATLABROOT)/toolbox/sigusr1
-	cp $(wildcard sigusr1.mex*) src/sigusr1.m $(MATLABROOT)/toolbox/sigusr1
+	mkdir -p $(MATLABROOT)/toolbox/matlabd
+	cp $(wildcard sigusr1.mex*) src/sigusr1.m $(MATLABROOT)/toolbox/matlabd
 	@echo "\nAdd the following to your startup.m: \
 	\n\n\taddpath(toolboxdir('matlabd'))"
 	@echo "\nFor shell completions, add the following to your startup files: \
@@ -23,7 +23,7 @@ install: all
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/matlabd
-	rm -rf $(MATLABROOT)/toolbox/sigusr1
+	rm -rf $(MATLABROOT)/toolbox/matlabd
 	rm -rf $(DESTDIR)$(PREFIX)/lib/matlabd/
 
 matlabroot:

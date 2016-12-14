@@ -6,5 +6,7 @@
 # see `matlabd help`
 
 echo "exit;" > $MATLABD_PIPE
-cat $MATLABD_TAILPIDFILE | xargs kill -9
-rm $MATLABD_PIPE $MATLABD_TAILPIDFILE
+if [ -e $MATLABD_TAILPIDFILE ]; then
+    cat $MATLABD_TAILPIDFILE | xargs kill -9
+fi
+rm -f $MATLABD_PIPE $MATLABD_TAILPIDFILE
