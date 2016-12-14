@@ -6,6 +6,6 @@
 
 echo "$1;" > $MATLABD_PIPE
 $_MATLABD_ROOT/bin/waitforsig &
-echo "contps($!);" > $MATLABD_PIPE
+echo "sigusr1($!);" > $MATLABD_PIPE
 wait $!
 echo "Finished running: $1" >> $MATLABD_CMDLOG
